@@ -1,7 +1,19 @@
 # sinit-acm-grebber
 
-#### simple tool for Downloading and unzipping intel-txt binaries
+## simple tool for Downloading and unzipping intel-txt binaries
 
+##### Installation
+
+run:
+```
+   $ go install system-transparency/sinit-acm-grebber
+```
+add it to your build path:
+```
+   $ export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
+```
+
+##### Usage
 You can simply run:
 
 ```
