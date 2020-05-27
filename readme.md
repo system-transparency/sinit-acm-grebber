@@ -16,7 +16,7 @@ in case the Url has changed you can also use:
 ```
 
 
-the default output folder ist the current Directorz it can be modified can be by using:
+the default output folder ist the current Directory it can be modified can be by using:
 ```
    $ sinit-acm-grebber -of ./some/directory
 ```
