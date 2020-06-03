@@ -1,17 +1,14 @@
 # sinit-acm-grebber
 
-## simple tool for Downloading and unzipping intel-txt binaries
+Simple tool for downloading and unzipping authenticated code modules.
 
 ##### Installation
 
 run:
 ```
-   $ go install system-transparency/sinit-acm-grebber
+   $ go get github.com/system-transparency/sinit-acm-grebber
 ```
-add it to your build path:
-```
-   $ export PATH=$PATH:$(dirname $(go list -f '{{.Target}}' .))
-```
+Make sure `${GOPATH}/bin` is in your `$PATH`
 
 ##### Usage
 You can simply run:
@@ -19,22 +16,22 @@ You can simply run:
 ```
    $ sinit-acm-grebber
 ```
-for downloading all sinit files from [Intel]( https://software.intel.com/content/www/us/en/develop/articles/intel-trusted-execution-technology.html).
+For downloading all SINIT ACMs from [Intel]( https://software.intel.com/content/www/us/en/develop/articles/intel-trusted-execution-technology.html).
 
 
-in case the Url has changed you can also use: 
+In case the URL has changed you can also use: 
 ```
    $ sinit-acm-grebber -url https://some.url/at/intel
 ```
 
 
-the default output folder ist the current Directory it can be modified by using:
+The default output folder ist the current directory. It can be modified by using:
 ```
    $ sinit-acm-grebber -of ./some/directory
 ```
 
 
-the zip files can be kept in a sub folder /zip by using:
+The zip files can be kept in a sub folder /zip by using:
 ```
    $ sinit-acm-grebber -noClean
 ```
