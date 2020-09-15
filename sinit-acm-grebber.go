@@ -148,6 +148,7 @@ func downloadAndUnzipFiles(link Link, of string, clean bool) {
 
 	if err != nil {
 		log.Debugf("Error: %s", err)
+		fmt.Println(err)
 		return
 	}
 
@@ -164,11 +165,13 @@ func downloadAndUnzipFiles(link Link, of string, clean bool) {
 		zipFolder = of + "/zip/"
 	}
 
-	os.MkdirAll(filepath.Dir(zipFolder), os.ModePerm)
+	err = os.MkdirAll(filepath.Dir(zipFolder), os.ModePerm)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	filename := getFilename(link.url)
-	err = downloadFile(zipFolder+filename, link.url)
-	//fmt.Println(filename)
+	err = downloadFile(zipFolder+filename, "https://software.intel.com"+link.url)
 	if err != nil {
 		log.Debugf("Error: %s", err)
 		return
@@ -194,12 +197,14 @@ func downloadFile(filepath string, url string) error {
 
 	resp, err := http.Get(url)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	defer resp.Body.Close()
 
 	out, err := os.Create(filepath)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	defer out.Close()
